@@ -33,3 +33,8 @@ https://lishangyang.github.io/check.github.io/zhongdi/index.html
 选项卡
 
 https://lishangyang.github.io/check.github.io/tabs/xuanxiangka2.html
+
+
+放大镜
+
+https://lishangyang.github.io/check.github.io/magnify/放大镜.html
