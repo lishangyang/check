@@ -38,3 +38,8 @@ https://lishangyang.github.io/check.github.io/tabs/xuanxiangka2.html
 放大镜
 
 https://lishangyang.github.io/check.github.io/magnify/放大镜.html
+
+
+轮播图
+
+https://lishangyang.github.io/check.github.io/slideshow/jq.lunbo.1.html
