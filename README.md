@@ -29,3 +29,7 @@ https://lishangyang.github.io/check.github.io/input/input.html
 种地
 
 https://lishangyang.github.io/check.github.io/zhongdi/index.html
+
+选项卡
+
+https://lishangyang.github.io/check.github.io/tabs/xuanxiangka2.html
