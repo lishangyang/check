@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>飞机大战</title>
+		<link rel="stylesheet" href="./airplane.css">
+	</head>
+
+	<body>
+		<div id="frameBox">
+			<div id="start">
+				<button onclick="start()">开始游戏</button>
+			</div>
+			<div id="pause">
+				<div id="count">0</div>
+				<div id="suspend">
+					<button id="continue">继续游戏</button>
+					<button id="restart" onclick="restart()">重新开始</button>
+				</div>
+			</div>
+			<div id="settlement">
+				<p id="final-text">飞机大战分数</p>
+				<p id="final-count">number</p>
+				<button onclick="restart()">重新开始</button>
+			</div>
+		</div>
+<script src="./airplane.js"></script>
+	</body>
+
+</html>
