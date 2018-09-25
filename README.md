@@ -46,3 +46,7 @@ https://lishangyang.github.io/check.github.io/hearthstone/炉石.html
 轮盘
 
 https://lishangyang.github.io/check.github.io/roulette/轮盘.html
+
+放大镜
+
+https://lishangyang.github.io/check.github.io/magnify/放大镜.html
