@@ -1,6 +1,6 @@
 https://lishangyang.github.io/check.github.io/
 
-ajax：下面这个链接页面右上角有个小按钮，不是空页面的
+ajax下面这个链接页面右上角有个小按钮，不是空页面的
 
 https://lishangyang.github.io/check.github.io/ajax/js.瀑布流.html
 
