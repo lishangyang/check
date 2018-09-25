@@ -21,3 +21,7 @@ https://lishangyang.github.io/check.github.io/css-cartogram/css统计2.html
 飞机大战
 
 https://lishangyang.github.io/check.github.io/plane/airplane.html
+
+input
+
+https://lishangyang.github.io/check.github.io/input/input.html
