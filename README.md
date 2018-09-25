@@ -1,1 +1,1 @@
-https://github.com/lishangyang/check/
+https://lishangyang.github.io/check.github.io/
