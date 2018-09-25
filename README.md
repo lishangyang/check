@@ -42,3 +42,7 @@ https://lishangyang.github.io/check.github.io/regular/zhengze1.html
 炉石传说
 
 https://lishangyang.github.io/check.github.io/hearthstone/炉石.html
+
+轮盘
+
+https://lishangyang.github.io/check.github.io/roulette/轮盘.html
