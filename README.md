@@ -47,3 +47,7 @@ https://lishangyang.github.io/check.github.io/slideshow/jq.lunbo.1.html
 正则验证
 
 https://lishangyang.github.io/check.github.io/regular/zhengze1.html
+
+炉石传说
+
+https://lishangyang.github.io/check.github.io/hearthstone/炉石.html
