@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jq/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="xuanxiangka.css" />
+</head>
+
+<body>
+    <div class="bigbox">
+        <div class="box1">
+            <span class="ccc">美女</span>
+            <span>风景 </span>
+            <span>漫画</span>
+        </div>
+        <div class="box2">
+            <li class="dd"><img class="pic" src="/img/03.jpg" alt=""></li>
+            <li><img class="pic" src="img/06.jpg" alt=""></li>
+            <li><img class="pic" src="img/09.jpg" alt=""></li>
+        </div>
+    </div>
+
+    <script>
+        // $('.bigbox .box2 li:first').show();
+        $('.bigbox .box1 span').click(function() {
+            $(this).addClass('ccc').siblings().removeClass('ccc');
+            $('.bigbox .box2 li').eq($(this).index()).addClass('dd').siblings().removeClass('dd');
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="text"></div>
+    <button id="btn" onclick="insert()">获取</button>
+    <!-- button按钮做一个点击事件，onclick=函数insert； -->
+    <style>
+        #text {
+            width: 100%;
+            border: 2px solid yellow;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        // 声明变量xmlhtp，判断版本，当前版本支持，就创建一个新的函数 XMLHttpRequest，
+        // 如果不是则创建ActiveXObject("Microsoft.XMLHTTP")，现在的版本基本不用判断，除特殊情况
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        // 建一个函数insert，然后建立一个与服务器的一个连接端口，然后发送访问需要访问内容的地址，异步执行，等待服务器处理；
+        function insert() {
+            xmlhttp.open("GET", "./6.txt", true);
+            xmlhttp.send();
+            console.log(xmlhttp)
+        }
+// 判断xmlhttp的状态码，当xmlhttp发生onreadystatechange时 ，用一个函数来判断xmltthp的值，当xmlhttp的readyState值等于4且status等于200时；
+// 插入想要的内容，否则readyState低于4的时候，继续等待，如果当readyState的值等于200，但没找到所需要的内容时，输出404；
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                document.getElementById('text').innerText =  xmlhttp.response;
+            }else if(xmlhttp.readyState === 3){
+                document.getElementById('text').innerText =  '...';
+            }else if(xmlhttp.readyState === 4 && xmlhttp.status === 404) {
+                document.getElementById('text').innerText =  '404';
+            }
+        }
+    </script>
+</body>
+
+</html>

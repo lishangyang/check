@@ -1,0 +1,298 @@
+body {
+	margin: 0;
+}
+
+.bigbox {
+	width: 100%;
+	height: 100vh;
+	background: #ADD8E6;
+	overflow: hidden;
+	perspective: 1000px;
+	display: block;
+}
+
+input {
+	display: none;
+}
+
+.bigbox .mixbox {
+	width: 500px;
+	height: 600px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	text-align: center;
+	transform-style: preserve-3d;
+	transition: all 0.3s;
+	border-radius: 20px;
+	transform-origin: 50% 50% 200px;
+}
+
+.bigbox .mixbox::after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	background: rgba(117, 117, 117, 0.6);
+	-webkit-transition: inherit;
+	transition: inherit;
+	border-radius: inherit;
+	z-index: -2;
+}
+
+.bigbox.mixbox .diss {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+}
+
+.bigbox .mixbox .box1 {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	background: url(../img/600x600.jpg)no-repeat bottom center;
+	background-size: cover;
+	z-index: -1;
+	border-radius: inherit;
+}
+
+.bigbox .mixbox .box1::before {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	background: rgba(255, 255, 0, 0);
+	border-radius: inherit;
+	-webkit-transition: inherit;
+	transition: inherit;
+}
+
+.bigbox .mixbox .box2 {
+	font-size: 0;
+}
+
+.bigbox .mixbox .box2 .bot {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	font-size: 12px;
+	margin: 25px;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	position: relative;
+	text-align: center;
+	line-height: 20px;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.bigbox .mixbox .box2 .bot::before {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	content: "";
+	background: #80005a;
+	-webkit-transform-origin: 50% 0 0;
+	transform-origin: 50% 0 0;
+	-webkit-transform: translateY(20px) rotateX(90deg);
+	transform: translateY(20px) rotateX(90deg);
+	height: 0px;
+	-webkit-transition: inherit;
+	transition: inherit;
+}
+
+.bigbox .mixbox .box2 .bot::after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	/*content: "M";*/
+	background: brown;
+	-webkit-transform: translateZ(0px);
+	transform: translateZ(0px);
+	-webkit-transition: inherit;
+	transition: inherit;
+}
+
+.bigbox .mixbox .box2 .bot span {
+	width: 0px;
+	display: block;
+	background: rgba(200, 245, 3, 0.712);
+	-webkit-transform-origin: 0 50% 0;
+	transform-origin: 0 50% 0;
+	-webkit-transform: rotateY(-90deg);
+	transform: rotateY(-90deg);
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-transition: inherit;
+	transition: inherit;
+}
+
+.bigbox .mixbox .box2 .box1 {
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.bigbox .mixbox .box2 .box2 {
+	-webkit-transition: all 0.39s;
+	transition: all 0.39s;
+}
+
+.bigbox .mixbox .box2 .box3 {
+	-webkit-transition: all 0.27s;
+	transition: all 0.27s;
+}
+
+.bigbox .mixbox .box2 .box4 {
+	-webkit-transition: all 0.36s;
+	transition: all 0.36s;
+}
+
+.bigbox .mixbox .box2 .box5 {
+	-webkit-transition: all 0.51s;
+	transition: all 0.51s;
+}
+
+.bigbox .mixbox .box2 .box6 {
+	-webkit-transition: all 0.24s;
+	transition: all 0.24s;
+}
+
+.bigbox .mixbox .box2 .box7 {
+	-webkit-transition: all 0.48s;
+	transition: all 0.48s;
+}
+
+
+/**/
+
+input:checked+.mixbox {
+	-webkit-transform: rotateX(60deg) rotateY(0deg) translateZ(100px);
+	transform: rotateX(60deg) rotateY(0deg) translateZ(100px);
+}
+
+input:checked+.mixbox::after {
+	-webkit-transform: translateZ(-20px);
+	transform: translateZ(-20px);
+}
+
+input:checked+.mixbox .box1::before {
+	background: rgba(46, 129, 224, 0.8);
+}
+
+input:checked+.mixbox .box2 .box1::before {
+	height: 100px;
+}
+
+input:checked+.mixbox .box2 .box1::after {
+	-webkit-transform: translateZ(100px);
+	transform: translateZ(100px);
+}
+
+input:checked+.mixbox .box2 .box1 span {
+	width: 100px;
+}
+
+input:checked+.mixbox .box2 .box2::before {
+	height: 130px;
+}
+
+input:checked+.mixbox .box2 .box2::after {
+	-webkit-transform: translateZ(130px);
+	transform: translateZ(130px);
+}
+
+input:checked+.mixbox .box2 .box2 span {
+	width: 130px;
+}
+
+input:checked+.mixbox .box2 .box3::before {
+	height: 90px;
+}
+
+input:checked+.mixbox .box2 .box3::after {
+	-webkit-transform: translateZ(90px);
+	transform: translateZ(90px);
+}
+
+input:checked+.mixbox .box2 .box3 span {
+	width: 90px;
+}
+
+input:checked+.mixbox .box2 .box4::before {
+	height: 120px;
+}
+
+input:checked+.mixbox .box2 .box4::after {
+	-webkit-transform: translateZ(120px);
+	transform: translateZ(120px);
+}
+
+input:checked+.mixbox .box2 .box4 span {
+	width: 120px;
+}
+
+input:checked+.mixbox .box2 .box5::before {
+	height: 170px;
+}
+
+input:checked+.mixbox .box2 .box5::after {
+	-webkit-transform: translateZ(170px);
+	transform: translateZ(170px);
+}
+
+input:checked+.mixbox .box2 .box5 span {
+	width: 170px;
+}
+
+input:checked+.mixbox .box2 .box6::before {
+	height: 80px;
+}
+
+input:checked+.mixbox .box2 .box6::after {
+	-webkit-transform: translateZ(80px);
+	transform: translateZ(80px);
+}
+
+input:checked+.mixbox .box2 .box6 span {
+	width: 80px;
+}
+
+input:checked+.mixbox .box2 .box7::before {
+	height: 160px;
+}
+
+input:checked+.mixbox .box2 .box7::after {
+	-webkit-transform: translateZ(160px);
+	transform: translateZ(160px);
+}
+
+input:checked+.mixbox .box2 .box7 span {
+	width: 160px;
+}

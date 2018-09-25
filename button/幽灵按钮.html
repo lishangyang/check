@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jq/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="center">
+        <h1>Bubble hover effect</h1>
+        <div class="bigbox">
+            <div class="su">
+                <a class="sa1" href="">
+                    <span>Simple button</span>
+                </a>
+                <i></i>
+            </div>
+            <div class="su">
+                <a class="sa2" href="">
+                    <span>Another button</span>
+                </a>
+                <i></i>
+            </div>
+            <div class="su">
+                <a class="sa3" href="">
+                    <span>A third button</span>
+                </a>
+                <i></i>
+            </div>
+            <div class="su">
+                <a class="sa4" href="">
+                    <span>A forth button</span>
+                </a>
+                <i></i>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            background: lightskyblue;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .center {
+            width: 100%;
+            padding-top: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+        }
+
+        .bigbox {
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        .bigbox .su {
+            width: 200px;
+            height: 70px;
+            margin-bottom: 25px;
+            background: lightcoral;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            z-index: 1;
+        }
+
+        .bigbox .su .sa1 {
+            color: white;
+            display: block;
+            text-align: center;
+            line-height: 70px;
+        }
+
+        .bigbox .su .sa2 {
+            color: white;
+            display: block;
+            text-align: center;
+            line-height: 70px;
+        }
+
+        .bigbox .su .sa3 {
+            color: white;
+            display: block;
+            text-align: center;
+            line-height: 70px;
+        }
+
+        .bigbox .su .sa4 {
+            color: white;
+            display: block;
+            text-align: center;
+            line-height: 70px;
+        }
+
+        i {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            background: yellow;
+            transform: scale(0);
+            transition: transform .5s;
+            z-index: -1;
+        }
+
+        .sa1.activate+i {
+            transform: scale(5);
+        }
+
+        .sa2.activate+i {
+            transform: scale(5);
+        }
+
+        .sa3.activate+i {
+            transform: scale(5);
+        }
+
+        .sa4.activate+i {
+            transform: scale(5);
+        }
+    </style>
+
+    <script>
+        $('.sa1').hover(function (ev) {
+            $('.sa1+i').css({
+                top: (ev.clientY - $('.sa1').offset().top - 50),
+                left: (ev.clientX - $('.sa1').offset().left - 50)
+            })
+            $('.sa1').addClass('activate');
+            console.log((ev.clientX - $('.sa1').offset().left) + '/' + (ev.clientY - $('.sa1').offset().top))
+        }, function () {
+            $('.sa1').removeClass('activate');
+        })
+
+        $('.sa2').hover(function (ev) {
+            $('.sa2+i').css({
+                top: (ev.clientY - $('.sa2').offset().top - 50),
+                left: (ev.clientX - $('.sa2').offset().left - 50)
+            })
+            $('.sa2').addClass('activate');
+            console.log((ev.clientX - $('.sa2').offset().left) + '/' + (ev.clientY - $('.sa2').offset().top))
+        }, function () {
+            $('.sa2').removeClass('activate');
+        })
+
+        $('.sa3').hover(function (ev) {
+            $('.sa3+i').css({
+                top: (ev.clientY - $('.sa3').offset().top - 50),
+                left: (ev.clientX - $('.sa3').offset().left - 50)
+            })
+            $('.sa3').addClass('activate');
+            console.log((ev.clientX - $('.sa3').offset().left) + '/' + (ev.clientY - $('.sa3').offset().top))
+        }, function () {
+            $('.sa3').removeClass('activate');
+        })
+
+        $('.sa4').hover(function (ev) {
+            $('.sa4+i').css({
+                top: (ev.clientY - $('.sa4').offset().top - 50),
+                left: (ev.clientX - $('.sa4').offset().left - 50)
+            })
+            $('.sa4').addClass('activate');
+            console.log((ev.clientX - $('.sa4').offset().left) + '/' + (ev.clientY - $('.sa4').offset().top))
+        }, function () {
+            $('.sa4').removeClass('activate');
+        })
+    </script>
+</body>
+
+</html>

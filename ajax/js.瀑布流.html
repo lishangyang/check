@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script src="../jq/jquery.js" type="text/javascript" charset="utf-8"></script> -->
+    <title>瀑布流</title>
+</head>
+
+<body>
+    <input type="radio" onclick="taking()">
+    <div id="niu"></div>
+    <img src="" alt="">
+
+    <style>
+        input {
+            position: fixed;
+            right: 0;
+            top: 0;
+        }
+        
+        img {
+            width: 200px;
+        }
+    </style>
+
+    <script>
+        var xmlhttp = new XMLHttpRequest();
+        var port = 'https://www.apiopen.top/meituApi?page=';
+        var page = 1;
+        var json;
+
+
+        function taking() {
+            var currentUrl = port + page;
+            xmlhttp.open("get", currentUrl);
+            xmlhttp.send();
+            page++;
+        }
+
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                json = JSON.parse(xmlhttp.responseText);
+                for (var i = 0; i < json.data.length; i++) {
+                    var imgNOde = new Image();
+                    var imgNode = document.createElement('img');
+                    imgNode.src = json.data[i].url;
+                    document.body.appendChild(imgNode);
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

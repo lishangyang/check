@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jq/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="">
+        <input type="range" min="1" max="5" step="0.5" value="2">
+        <span>2</span>
+    </label>
+    <hr>
+    <div class="rahmen">
+        <img src="imgs/04.jpg" alt="">
+        <div class="loupe"></div>
+        <div class="shade "></div>
+    </div>
+    <div class="window">
+        <img src="imgs/04.jpg" alt="">
+    </div>
+    <style>
+        .rahmen {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .rahmen img {
+            width: 100%;
+            /* height: 100%; */
+        }
+        
+        .rahmen .loupe {
+            width: 100px;
+            height: 100px;
+            background-color: azure;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* opacity: 0.5; */
+            display: none;
+        }
+        
+        .rahmen .shade {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .window {
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            display: none;
+            overflow: hidden;
+            position: relative;
+            border: 3px solid lightcoral;
+        }
+        
+        .window img {
+            width: 600px;
+            height: 600px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+
+    <script>
+        var magnification = 2;
+        var loupeWidth = $('.rahmen').width() / magnification;
+        var loupeHeight = $('.rahmen').height() / magnification;
+
+        // 把视框的图片放大两倍
+        $('.window img').css({
+            width: $('.window').width() * magnification,
+            height: $('.window').height() * magnification
+        });
+
+        // 声明一个变量函数，让input可以控制相片放大倍数
+        var resetTheZoom = function() {
+            magnification = $('label input').val();
+            $('lable span').text(magnification);
+            $('.window img').css({
+                width: $('.window').width() * magnification,
+                height: $('.window').height() * magnification
+            });
+        }
+
+        // 当input发生改变时触发调用resetTheZoom函数，同步改變
+        $('label input').change(function(e) {
+            resetTheZoom();
+        });
+        // var x = 150 + 'px';
+        // var y = 50 +'px';
+
+        // 鼠標控制放大鏡移动
+        $('.rahmen .shade').mousemove(function(e) {
+            // 放大镜的宽高
+            loupeWidth = $('.rahmen').width() / magnification;
+            loupeHeight = $('.rahmen').height() / magnification;
+
+            //    loupe位移的中心坐标点
+            var loupePosX = e.offsetX - loupeWidth / 2;
+            var loupePosY = e.offsetY - loupeHeight / 2;
+            // 给放大镜固定移动范围，不可超出视图
+            if (loupePosX <= 0) {
+                loupePosY = 0;
+            }
+            if (loupePosX >= $('.rahmen').width() - $('.rahmen .loupe').width()) {
+                loupePosX = $('.rahmen').width() - $('.rahmen .loupe').width();
+            }
+            if (loupePosY <= 0) {
+                loupePosY = 0;
+            }
+            if (loupePosY >= $('.rahmen').height() - $('.rahmen .loupe').height()) {
+                loupePosY = $('.rahmen').height() - $('.rahmen .loupe').height();
+            }
+
+            $('.rahmen .loupe').css({
+                width: loupeWidth,
+                height: loupeHeight,
+                top: loupePosY,
+                left: loupePosX
+            })
+
+            $('.window img').css({
+                top: -loupePosY / $('.rahmen').height() * $('.window img').height(),
+                left: -loupePosX / $('.rahmen').width() * $('window img').width(),
+            })
+        });
+
+        $('.shade').hover(function() {
+            $('.rahmen .loupe').add('.window').show()
+        }, function() {
+            $('.rahmen .loupe').add('.window').hide()
+        });
+
+        $('.rahmen')[0].onwheel = function(event) {
+            if (event.deltaY > 0) {
+                $('label input').val(Number($('label input').val()) - 0.5)
+            } else {
+                $('label input').val(Number($('label input').val()) + 0.5)
+            }
+            resetTheZoom();
+        }
+    </script>
+</body>
+
+</html>

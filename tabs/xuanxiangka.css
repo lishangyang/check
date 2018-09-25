@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  background: lemonchiffon;
+}
+li,
+a {
+  text-decoration: none;
+  list-style: none;
+}
+.bigbox {
+  width: 600px;
+  margin: 100px auto;
+  color: white;
+}
+.bigbox .box1 {
+  text-align: center;
+  overflow: hidden;
+}
+.bigbox .box1 span {
+  display: inline-block;
+  line-height: 50px;
+  width: 200px;
+  float: left;
+  background: gray;
+}
+.bigbox .box1 .ccc {
+  background: lightcoral;
+}
+.bigbox .box2 {
+  height: 300px;
+}
+.bigbox .box2 li {
+  display: none;
+  width: 600px;
+  height: 300px;
+  text-align: center;
+}
+.bigbox .box2 li .pic {
+  width: 300px;
+  height: 200px;
+  margin-top: 20px;
+}
+.bigbox .box2 .dd {
+  display: block;
+  background: lightcoral;
+}

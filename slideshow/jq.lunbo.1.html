@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jq/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="bigbox">
+        <div class="imgs">
+            <li>
+                <img src="img/07.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/08.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/11.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/12.jpg" alt="">
+            </li>
+        </div>
+        <div class="shift">
+            <li class="prve">
+                <span></span>
+            </li>
+            <li class="next">
+                <span></span>
+            </li>
+        </div>
+        <div class="dot">
+            <!-- <li></li>
+            <li></li>
+            <li></li>
+            <li></li> -->
+        </div>
+    </div>
+
+
+    <style>
+        body {
+            margin: 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        img {
+            float: left;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .bigbox {
+            width: 600px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+            border-radius: 15px;
+        }
+        
+        .bigbox .imgs {
+            width: 2400px;
+            height: 400px;
+        }
+        
+        .bigbox .imgs li {
+            width: 600px;
+            height: 400px;
+            float: left;
+        }
+        
+        .bigbox .shift {
+            position: absolute;
+            top: 180px;
+            left: 0;
+            color: white;
+            width: 100%;
+        }
+        
+        .bigbox .shift .prve {
+            float: left;
+        }
+        
+        .bigbox .shift .prve span {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-top: lightgray solid 5px;
+            border-left: lightgray solid 5px;
+            transform: rotate(-45deg);
+        }
+        
+        .bigbox .shift .next {
+            float: right;
+        }
+        
+        .bigbox .shift .next span {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-top: lightgray solid 5px;
+            border-right: lightgray solid 5px;
+            transform: rotate(45deg);
+        }
+        
+        .bigbox .dot {
+            position: absolute;
+            bottom: 0;
+            left: 260px;
+        }
+        
+        .bigbox .dot li {
+            display: inline-block;
+            float: left;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .bigbox .dot li.activate {
+            background: yellow;
+        }
+    </style>
+
+    <script>
+        $('.imgs li').each(function() {
+            $('.dot').append('<li></li>');
+        });
+        $('.bigbox .dot li').first().addClass('activate');
+        var pic = $('.bigbox .imgs li ');
+        $('.bigbox .dot li').click(function() {
+            $(this).addClass('activate').siblings().removeClass('activate')
+
+            if ($(this).index() > pic.index($('.imgs li:eq(0)'))) {
+                pic.eq($(this).index()).insertAfter('.imgs li:eq(0)');
+                $('.imgs').animate({
+                    'margin-left': '-600px'
+                }, 1000, function() {
+                    $('.imgs').css('margin-left', '0').find('li').eq(0).appendTo(
+                        '.imgs');
+                })
+            } else if ($(this).index() < pic.index($('.imgs li:eq(0)'))) {
+                pic.eq($(this).index()).insertBefore('.imgs li:eq(0)');
+                $('.imgs').css({
+                    'margin-left': '-600px'
+                }).animate({
+                    'margin-left': '0'
+                }, 1000)
+            }
+        });
+
+
+        $('.next').click(function() {
+            var nextIndex = pic.index($('.imgs li:eq(0)')) + 1;
+            if (nextIndex >= pic.length) {
+                nextIndex = 0;
+            }
+            $('.dot li').eq(nextIndex).addClass('activate').siblings().removeClass('activate');
+
+            pic.eq(nextIndex).insertAfter('.imgs li:eq(0)');
+            //jq内置动画吧content向左移动 一个图片的宽度 
+            $('.imgs').animate({
+                'margin-left': '-600px'
+            }, 1000, function() {
+                // 等动画执行完成之后在把content的外边距重置为0，并把第一张图片移动到最后面
+                $('.imgs').css('margin-left', '0').find('li').eq(0).appendTo(
+                    '.imgs');
+            })
+
+            // console.log(nextIndex);
+        })
+
+
+        $('.prve').click(function() {
+            var prevIndex = pic.index($('.imgs li:eq(0)')) - 1;
+            if (prevIndex < 0) {
+                prevIndex = pic.length - 1;
+            }
+            $('.dot li').eq(prevIndex).addClass('activate').siblings().removeClass('activate');
+            pic.eq(prevIndex).insertBefore('.imgs li:eq(0)');
+            $('.imgs').css({
+                'margin-left': '-600px'
+            }).animate({
+                'margin-left': '0'
+            }, 1000)
+        })
+    </script>
+
+</body>
+
+</html>
