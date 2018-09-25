@@ -18,10 +18,6 @@ https://lishangyang.github.io/check.github.io/css-cartogram/css统计2.html
 
 https://lishangyang.github.io/check.github.io/plane/airplane.html
 
-input
-
-https://lishangyang.github.io/check.github.io/input/input.html
-
 种地
 
 https://lishangyang.github.io/check.github.io/zhongdi/index.html
